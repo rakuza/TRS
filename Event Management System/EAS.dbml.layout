@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EAS">
+  <DataContextMoniker Name="/EASDataContext" />
+  <nestedChildShapes>
+    <classShape Id="cb4c7cfa-971b-4673-bc5b-7f7f118d9ceb" absoluteBounds="6.25, 1.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/EASDataContext/attended_event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c7360cd-c949-4f80-9a3f-9ada49f803ab" absoluteBounds="6.265, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b59dfb3-ba8f-4cdd-b7a2-886432eeb65b" absoluteBounds="3.5, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/EASDataContext/purchased_ticket" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e3c53f4-3e89-4ed4-947d-95ddfc258fe6" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.94314697265625); (6.25 : 1.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EASDataContext/purchased_ticket/purchased_ticket_attended_event" />
+      <nodes>
+        <classShapeMoniker Id="4b59dfb3-ba8f-4cdd-b7a2-886432eeb65b" />
+        <classShapeMoniker Id="cb4c7cfa-971b-4673-bc5b-7f7f118d9ceb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="033a6ed3-210f-43a8-a09e-28e8110c2095" absoluteBounds="6, 4.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EASDataContext/events" />
+      <nestedChildShapes>
+        <elementListCompartment Id="64122f7b-7696-4104-aece-78ad36824348" absoluteBounds="6.015, 4.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="05c32c67-c033-4fc9-91ff-b9df1799530b" absoluteBounds="0.875, 1.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/EASDataContext/ticket" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0400f4d0-4911-4eee-8ee1-2c108f9ba843" absoluteBounds="0.89, 2.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 2.29409912109375); (3.10416666666667 : 2.29409912109375 : JumpStart); (3.27083333333333 : 2.29409912109375 : JumpEnd); (3.5 : 2.29409912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EASDataContext/ticket/ticket_purchased_ticket" />
+      <nodes>
+        <classShapeMoniker Id="05c32c67-c033-4fc9-91ff-b9df1799530b" />
+        <classShapeMoniker Id="4b59dfb3-ba8f-4cdd-b7a2-886432eeb65b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.125 : 4.5); (7.125 : 2.6362939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EASDataContext/events/events_attended_event" />
+      <nodes>
+        <classShapeMoniker Id="033a6ed3-210f-43a8-a09e-28e8110c2095" />
+        <classShapeMoniker Id="cb4c7cfa-971b-4673-bc5b-7f7f118d9ceb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="48132efd-e58b-4414-8a9b-a2b07344181f" absoluteBounds="1.5, 5.25, 2, 2.5401025390625">
+      <DataClassMoniker Name="/EASDataContext/user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8fd4ed5-37a7-4044-8312-5035e623ac30" absoluteBounds="1.5150000000000001, 5.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.1875 : 5.25); (3.1875 : 1.28125); (3.5 : 1.28125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/EASDataContext/user/user_purchased_ticket" />
+      <nodes>
+        <classShapeMoniker Id="48132efd-e58b-4414-8a9b-a2b07344181f" />
+        <classShapeMoniker Id="4b59dfb3-ba8f-4cdd-b7a2-886432eeb65b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
