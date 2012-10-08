@@ -1,5 +1,9 @@
 namespace Event_Management_System
 {
+    partial class EASDataContext
+    {
+    }
+
     partial class ticket
     {
         public override string ToString()
@@ -21,6 +25,14 @@ namespace Event_Management_System
         public override string ToString()
         {
             return username;
+        }
+    }
+
+    partial class purchased_ticket
+    {
+        public override string ToString()
+        {
+            return this.ticket.ticketname + " "+this.ticket.price.ToString("C");
         }
     }
 }

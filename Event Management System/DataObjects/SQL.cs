@@ -426,14 +426,12 @@ namespace Event_Management_System.DataObjects
                 return users.ToArray();
             }
 
-            static public ticket[] GetUsersUnusedTickets(user users)
+            static public purchased_ticket[] GetUsersUnusedTickets(user users)
             {
-                var tickets = from t in db.tickets
-                              join pt in db.purchased_tickets
-                              on t.ticketid equals pt.ticketid
+                var tickets = from pt in db.purchased_tickets
                               where pt.used == 0
                               && pt.userid == users.userid
-                              select t;
+                              select pt;
 
                 return tickets.ToArray();
             }
@@ -469,6 +467,16 @@ namespace Event_Management_System.DataObjects
                               select t;
 
                 return tickets.ToList();
+            }
+
+            static public void DeleteSelectedTicket(purchased_ticket t)
+            {
+                var ticketContext = (from pt in db.purchased_tickets
+                                     where pt.purchaseid == pt.purchaseid
+                                     select pt).First();
+                ticketContext.used = 1;
+
+                db.SubmitChanges();
             }
         }
 

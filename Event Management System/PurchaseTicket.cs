@@ -87,22 +87,33 @@ namespace Event_Management_System
 
         private void lbxOwnedTickets_SelectedValueChanged(object sender, EventArgs e)
         {
-            lblOwnedTicketPrice.Text = ((ticket)lbxOwnedTickets.SelectedItem).price.ToString("C");
-            lblOwnedTicketTicketName.Text = ((ticket)lbxOwnedTickets.SelectedItem).ticketname;
-            lblOwnedTicketType.Text = ((ticket)lbxOwnedTickets.SelectedItem).condition;
-            lblOwnedTicketPrice.Visible = true;
-            lblOwnedTicketTicketName.Visible = true;
-            lblOwnedTicketType.Visible = true;
+            try
+            {
+                ticket selectTicket = ((purchased_ticket)lbxOwnedTickets.SelectedItem).ticket;
+                lblOwnedTicketPrice.Text = selectTicket.price.ToString("C");
+                lblOwnedTicketTicketName.Text = selectTicket.ticketname;
+                lblOwnedTicketType.Text = selectTicket.condition;
+                lblOwnedTicketPrice.Visible = true;
+                lblOwnedTicketTicketName.Visible = true;
+                lblOwnedTicketType.Visible = true;
 
-            if (((ticket)lbxOwnedTickets.SelectedItem).condition == "annual")
-            {
-                lblexpires.Visible = true;
-                lblexpires.Text = "31/12/" + DateTime.Today.Year;
+                if (selectTicket.condition == "annual")
+                {
+                    lblexpires.Visible = true;
+                    lblexpires.Text = "31/12/" + DateTime.Today.Year;
+                }
+                else
+                {
+                    lblexpires.Visible = false;
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lblexpires.Visible = false;
-                
+                lblOwnedTicketPrice.Text = "";
+                lblOwnedTicketTicketName.Text = "";
+                lblOwnedTicketType.Text = "";
+                lblexpires.Text = "";
             }
 
         }
@@ -118,10 +129,21 @@ namespace Event_Management_System
             }
         }
 
-        private void lbxUsers_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnRemoveTicket_Click(object sender, EventArgs e)
         {
+            /*
+            purchased_ticket ticketToRemove = lbxOwnedTickets.SelectedItem as purchased_ticket;
 
+            SQL.PurchaseTickets.DeleteSelectedTicket(lbxOwnedTickets.SelectedItem as purchased_ticket);
+
+            lbxOwnedTickets.Items.Remove(lbxOwnedTickets.SelectedItem );
+            lbxOwnedTickets.SetSelected(0, true);
+            */
+
+            MessageBox.Show("not yet implemented");
         }
+
+
 
 
     }

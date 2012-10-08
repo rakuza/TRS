@@ -33,6 +33,9 @@
             this.lbxOwnedTickets = new System.Windows.Forms.ListBox();
             this.lbxTickets = new System.Windows.Forms.ListBox();
             this.gbxUserInfo = new System.Windows.Forms.GroupBox();
+            this.lblexpires = new System.Windows.Forms.Label();
+            this.staticlblExpires = new System.Windows.Forms.Label();
+            this.btnRemoveTicket = new System.Windows.Forms.Button();
             this.staticType2 = new System.Windows.Forms.Label();
             this.staticUnusedTickets = new System.Windows.Forms.Label();
             this.staticPrice2 = new System.Windows.Forms.Label();
@@ -55,9 +58,6 @@
             this.lblType = new System.Windows.Forms.Label();
             this.lblTicketName = new System.Windows.Forms.Label();
             this.staticTicketName = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.staticlblExpires = new System.Windows.Forms.Label();
-            this.lblexpires = new System.Windows.Forms.Label();
             this.gbxUserInfo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +69,7 @@
             this.lbxUsers.Name = "lbxUsers";
             this.lbxUsers.Size = new System.Drawing.Size(120, 238);
             this.lbxUsers.TabIndex = 0;
-            this.lbxUsers.SelectedIndexChanged += new System.EventHandler(this.lbxUsers_SelectedIndexChanged);
+            this.lbxUsers.SelectedIndexChanged += new System.EventHandler(this.lbxUsers_SelectedValueChanged);
             this.lbxUsers.SelectedValueChanged += new System.EventHandler(this.lbxUsers_SelectedValueChanged);
             // 
             // tbxSearch
@@ -102,7 +102,7 @@
             // 
             this.gbxUserInfo.Controls.Add(this.lblexpires);
             this.gbxUserInfo.Controls.Add(this.staticlblExpires);
-            this.gbxUserInfo.Controls.Add(this.button1);
+            this.gbxUserInfo.Controls.Add(this.btnRemoveTicket);
             this.gbxUserInfo.Controls.Add(this.staticType2);
             this.gbxUserInfo.Controls.Add(this.staticUnusedTickets);
             this.gbxUserInfo.Controls.Add(this.staticPrice2);
@@ -126,6 +126,34 @@
             this.gbxUserInfo.TabIndex = 4;
             this.gbxUserInfo.TabStop = false;
             this.gbxUserInfo.Text = "User Infomation";
+            // 
+            // lblexpires
+            // 
+            this.lblexpires.AutoSize = true;
+            this.lblexpires.Location = new System.Drawing.Point(144, 455);
+            this.lblexpires.Name = "lblexpires";
+            this.lblexpires.Size = new System.Drawing.Size(52, 13);
+            this.lblexpires.TabIndex = 27;
+            this.lblexpires.Text = "<expires>";
+            // 
+            // staticlblExpires
+            // 
+            this.staticlblExpires.AutoSize = true;
+            this.staticlblExpires.Location = new System.Drawing.Point(144, 442);
+            this.staticlblExpires.Name = "staticlblExpires";
+            this.staticlblExpires.Size = new System.Drawing.Size(41, 13);
+            this.staticlblExpires.TabIndex = 26;
+            this.staticlblExpires.Text = "Expires";
+            // 
+            // btnRemoveTicket
+            // 
+            this.btnRemoveTicket.Location = new System.Drawing.Point(147, 309);
+            this.btnRemoveTicket.Name = "btnRemoveTicket";
+            this.btnRemoveTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveTicket.TabIndex = 25;
+            this.btnRemoveTicket.Text = "Remove";
+            this.btnRemoveTicket.UseVisualStyleBackColor = true;
+            this.btnRemoveTicket.Click += new System.EventHandler(this.btnRemoveTicket_Click);
             // 
             // staticType2
             // 
@@ -344,33 +372,6 @@
             this.staticTicketName.TabIndex = 12;
             this.staticTicketName.Text = "Ticket name";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(147, 309);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // staticlblExpires
-            // 
-            this.staticlblExpires.AutoSize = true;
-            this.staticlblExpires.Location = new System.Drawing.Point(144, 442);
-            this.staticlblExpires.Name = "staticlblExpires";
-            this.staticlblExpires.Size = new System.Drawing.Size(41, 13);
-            this.staticlblExpires.TabIndex = 26;
-            this.staticlblExpires.Text = "Expires";
-            // 
-            // lblexpires
-            // 
-            this.lblexpires.AutoSize = true;
-            this.lblexpires.Location = new System.Drawing.Point(144, 455);
-            this.lblexpires.Name = "lblexpires";
-            this.lblexpires.Size = new System.Drawing.Size(52, 13);
-            this.lblexpires.TabIndex = 27;
-            this.lblexpires.Text = "<expires>";
-            // 
             // PurchaseTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,6 +422,6 @@
         private System.Windows.Forms.Label staticTicketName2;
         private System.Windows.Forms.Label lblexpires;
         private System.Windows.Forms.Label staticlblExpires;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRemoveTicket;
     }
 }

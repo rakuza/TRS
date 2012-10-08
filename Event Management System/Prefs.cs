@@ -25,9 +25,17 @@ namespace Event_Management_System
 
             sc.DataSource = tbxServer.Text;
             sc.InitialCatalog = tbxDataSource.Text;
-            sc.Password = tbxPassword.Text;
-            sc.UserID = tbxUserName.Text;
-            sc.IntegratedSecurity = false;
+
+            if (chkwinauth.Checked^ true)
+            {
+                sc.Password = tbxPassword.Text;
+                sc.UserID = tbxUserName.Text;
+                sc.IntegratedSecurity = false;
+            }
+            else
+            {
+                sc.IntegratedSecurity =true;
+            }
             
 
             Settings.Default.ConnectionString = sc.ConnectionString;
@@ -42,10 +50,18 @@ namespace Event_Management_System
         private void Prefs_Load(object sender, EventArgs e)
         {
             SqlConnectionStringBuilder sc = new SqlConnectionStringBuilder(Settings.Default.ConnectionString);
+            
             tbxUserName.Text = sc.UserID;
             tbxServer.Text = sc.DataSource;
             tbxPassword.Text = sc.Password;
             tbxDataSource.Text = sc.InitialCatalog;
+        }
+
+        private void chkwinauth_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = sender as CheckBox;
+            tbxUserName.Enabled = chk.Checked ^ true;
+            tbxPassword.Enabled = chk.Checked ^ true;
         }
     }
 }
