@@ -488,18 +488,6 @@ namespace Event_Management_System.DataObjects
                     db.purchased_tickets.DeleteOnSubmit(ticket);
                     db.SubmitChanges();
                 }
-
-            }
-
-            static public void DeleteSelectedTicket(purchased_ticket t)
-            {
-                var ticketContext = (from pt in db.purchased_tickets
-                                     where pt.purchaseid == pt.purchaseid
-                                     select pt).First();
-                ticketContext.used = 1;
-
-                db.SubmitChanges();
-
             }
         }
 
