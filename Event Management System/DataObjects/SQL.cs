@@ -216,10 +216,6 @@ namespace Event_Management_System.DataObjects
                 {
                     msgs +="No Date Entered. Please enter a date or the event will not show";
                 }
-                else if (eventToAdd.eventdate < DateTime.Now)
-                {
-                    msgs +="The event has already occured either try another date or adjust system clock";
-                }
 
                 if (msgs != "")
                 {
@@ -318,6 +314,7 @@ namespace Event_Management_System.DataObjects
                               on pt.ticketid equals t.ticketid
                               where pt.userid == user.userid
                               && pt.used == 0
+                              && pt.expires < DateTime.Today
                               select t;
 
                 return tickets.ToArray();
@@ -341,7 +338,8 @@ namespace Event_Management_System.DataObjects
                                      && pt.ticketid == ticket.ticketid
                                      select pt).First();
 
-                editingTicket.used = 1;
+                if(editingTicket.ticket.condition != "annual" || editingTicket.ticket.condition != "life")
+                    editingTicket.used = 1;
 
                 editingTicket.attended_events.Add(ae);
 
