@@ -426,16 +426,24 @@ namespace Event_Management_System.DataObjects
                 return users.ToArray();
             }
 
-            static public ticket[] GetUsersUnusedTickets(user users)
+            static public purchased_ticket[] GetUsersUnusedTickets(user users)
             {
-                var tickets = from t in db.tickets
-                              join pt in db.purchased_tickets
-                              on t.ticketid equals pt.ticketid
+                //var tickets = from t in db.tickets
+                //              join pt in db.purchased_tickets
+                //              on t.ticketid equals pt.ticketid
+                //              where pt.used == 0
+                //              && pt.userid == users.userid
+                //              select t;
+
+                //return tickets.ToArray();
+
+                var tickets = from pt in db.purchased_tickets
                               where pt.used == 0
                               && pt.userid == users.userid
-                              select t;
+                              select pt;
 
                 return tickets.ToArray();
+             
             }
 
             static public void BuyTicket(user userToPurchase, ticket ticket)

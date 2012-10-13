@@ -45,6 +45,7 @@ namespace Event_Management_System
             if (lbxUsers.SelectedItem != null)
             {
                 lbxOwnedTickets.Items.Clear();
+                lbxOwnedTickets.DisplayMember = "ticket";
                 lbxOwnedTickets.Items.AddRange(SQL.PurchaseTickets.GetUsersUnusedTickets((user)lbxUsers.SelectedItem));
                 user temp = (user)lbxUsers.SelectedItem;
                 lblLastName.Text = temp.lastname;
@@ -87,14 +88,14 @@ namespace Event_Management_System
 
         private void lbxOwnedTickets_SelectedValueChanged(object sender, EventArgs e)
         {
-            lblOwnedTicketPrice.Text = ((ticket)lbxOwnedTickets.SelectedItem).price.ToString("C");
-            lblOwnedTicketTicketName.Text = ((ticket)lbxOwnedTickets.SelectedItem).ticketname;
-            lblOwnedTicketType.Text = ((ticket)lbxOwnedTickets.SelectedItem).condition;
+            lblOwnedTicketPrice.Text = ((purchased_ticket)lbxOwnedTickets.SelectedItem).paid.ToString("C");
+            lblOwnedTicketTicketName.Text = ((purchased_ticket)lbxOwnedTickets.SelectedItem).ticket.ticketname;
+            lblOwnedTicketType.Text = ((purchased_ticket)lbxOwnedTickets.SelectedItem).ticket.condition;
             lblOwnedTicketPrice.Visible = true;
             lblOwnedTicketTicketName.Visible = true;
             lblOwnedTicketType.Visible = true;
 
-            if (((ticket)lbxOwnedTickets.SelectedItem).condition == "annual")
+            if (((purchased_ticket)lbxOwnedTickets.SelectedItem).ticket.condition == "annual")
             {
                 lblexpires.Visible = true;
                 lblexpires.Text = "31/12/" + DateTime.Today.Year;
@@ -118,10 +119,15 @@ namespace Event_Management_System
             }
         }
 
-        private void lbxUsers_SelectedIndexChanged(object sender, EventArgs e)
+        private void Remove(object sender, EventArgs e)
         {
-
+            purchased_ticket ticketToRemove = lbxOwnedTickets.SelectedItem as purchased_ticket;
+            //more stuff
         }
+
+
+
+
 
 
     }
