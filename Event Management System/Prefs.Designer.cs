@@ -37,11 +37,12 @@
             this.staticlblServer = new System.Windows.Forms.Label();
             this.tbxDataSource = new System.Windows.Forms.TextBox();
             this.staticlblDatabase = new System.Windows.Forms.Label();
+            this.chkwinauth = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(12, 168);
+            this.btnSave.Location = new System.Drawing.Point(9, 191);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(114, 23);
             this.btnSave.TabIndex = 0;
@@ -52,7 +53,7 @@
             // staticlblUserName
             // 
             this.staticlblUserName.AutoSize = true;
-            this.staticlblUserName.Location = new System.Drawing.Point(12, 9);
+            this.staticlblUserName.Location = new System.Drawing.Point(9, 32);
             this.staticlblUserName.Name = "staticlblUserName";
             this.staticlblUserName.Size = new System.Drawing.Size(55, 13);
             this.staticlblUserName.TabIndex = 1;
@@ -60,14 +61,14 @@
             // 
             // tbxUserName
             // 
-            this.tbxUserName.Location = new System.Drawing.Point(12, 25);
+            this.tbxUserName.Location = new System.Drawing.Point(9, 48);
             this.tbxUserName.Name = "tbxUserName";
             this.tbxUserName.Size = new System.Drawing.Size(205, 20);
             this.tbxUserName.TabIndex = 2;
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(12, 64);
+            this.tbxPassword.Location = new System.Drawing.Point(9, 87);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '卐';
             this.tbxPassword.Size = new System.Drawing.Size(205, 20);
@@ -76,7 +77,7 @@
             // staticlblPassword
             // 
             this.staticlblPassword.AutoSize = true;
-            this.staticlblPassword.Location = new System.Drawing.Point(12, 48);
+            this.staticlblPassword.Location = new System.Drawing.Point(9, 71);
             this.staticlblPassword.Name = "staticlblPassword";
             this.staticlblPassword.Size = new System.Drawing.Size(53, 13);
             this.staticlblPassword.TabIndex = 3;
@@ -84,7 +85,7 @@
             // 
             // tbxServer
             // 
-            this.tbxServer.Location = new System.Drawing.Point(12, 103);
+            this.tbxServer.Location = new System.Drawing.Point(9, 126);
             this.tbxServer.Name = "tbxServer";
             this.tbxServer.Size = new System.Drawing.Size(205, 20);
             this.tbxServer.TabIndex = 6;
@@ -92,7 +93,7 @@
             // staticlblServer
             // 
             this.staticlblServer.AutoSize = true;
-            this.staticlblServer.Location = new System.Drawing.Point(12, 87);
+            this.staticlblServer.Location = new System.Drawing.Point(9, 110);
             this.staticlblServer.Name = "staticlblServer";
             this.staticlblServer.Size = new System.Drawing.Size(38, 13);
             this.staticlblServer.TabIndex = 5;
@@ -100,7 +101,7 @@
             // 
             // tbxDataSource
             // 
-            this.tbxDataSource.Location = new System.Drawing.Point(12, 142);
+            this.tbxDataSource.Location = new System.Drawing.Point(9, 165);
             this.tbxDataSource.Name = "tbxDataSource";
             this.tbxDataSource.Size = new System.Drawing.Size(205, 20);
             this.tbxDataSource.TabIndex = 8;
@@ -108,17 +109,29 @@
             // staticlblDatabase
             // 
             this.staticlblDatabase.AutoSize = true;
-            this.staticlblDatabase.Location = new System.Drawing.Point(12, 126);
+            this.staticlblDatabase.Location = new System.Drawing.Point(9, 149);
             this.staticlblDatabase.Name = "staticlblDatabase";
             this.staticlblDatabase.Size = new System.Drawing.Size(53, 13);
             this.staticlblDatabase.TabIndex = 7;
             this.staticlblDatabase.Text = "Database";
             // 
+            // chkwinauth
+            // 
+            this.chkwinauth.AutoSize = true;
+            this.chkwinauth.Location = new System.Drawing.Point(12, 12);
+            this.chkwinauth.Name = "chkwinauth";
+            this.chkwinauth.Size = new System.Drawing.Size(141, 17);
+            this.chkwinauth.TabIndex = 9;
+            this.chkwinauth.Text = "Windows Authentication";
+            this.chkwinauth.UseVisualStyleBackColor = true;
+            this.chkwinauth.CheckedChanged += new System.EventHandler(this.chkwinauth_CheckedChanged);
+            // 
             // Prefs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(233, 200);
+            this.ClientSize = new System.Drawing.Size(264, 324);
+            this.Controls.Add(this.chkwinauth);
             this.Controls.Add(this.tbxDataSource);
             this.Controls.Add(this.staticlblDatabase);
             this.Controls.Add(this.tbxServer);
@@ -148,5 +161,6 @@
         private System.Windows.Forms.Label staticlblServer;
         private System.Windows.Forms.TextBox tbxDataSource;
         private System.Windows.Forms.Label staticlblDatabase;
+        private System.Windows.Forms.CheckBox chkwinauth;
     }
 }

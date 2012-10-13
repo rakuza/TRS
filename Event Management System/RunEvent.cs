@@ -175,6 +175,7 @@ namespace Event_Management_System
                 string ticketPrice = cbxTickets.SelectedItem.ToString();
                 //grab just the name
                 ticketPrice = ticketPrice.Split('$')[0];
+                ticketPrice = ticketPrice.Trim();
                 //select the ticket from the list
                 var selectTicket = (from t in ticketlist
                                     where t.ticketname == ticketPrice
