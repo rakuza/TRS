@@ -428,15 +428,6 @@ namespace Event_Management_System.DataObjects
 
             static public purchased_ticket[] GetUsersUnusedTickets(user users)
             {
-                //var tickets = from t in db.tickets
-                //              join pt in db.purchased_tickets
-                //              on t.ticketid equals pt.ticketid
-                //              where pt.used == 0
-                //              && pt.userid == users.userid
-                //              select t;
-
-                //return tickets.ToArray();
-
                 var tickets = from pt in db.purchased_tickets
                               where pt.used == 0
                               && pt.userid == users.userid
@@ -446,7 +437,7 @@ namespace Event_Management_System.DataObjects
              
             }
 
-            static public void BuyTicket(user userToPurchase, ticket ticket)
+            static public purchased_ticket BuyTicket(user userToPurchase, ticket ticket)
             {
                 var user = (from u in db.users
                             where u.userid == userToPurchase.userid
@@ -469,6 +460,8 @@ namespace Event_Management_System.DataObjects
                 user.purchased_tickets.Add(pt);
 
                 db.SubmitChanges();
+
+                return pt;
             }
 
             static public List<ticket> SelectAllTicketsAsList()
@@ -477,6 +470,24 @@ namespace Event_Management_System.DataObjects
                               select t;
 
                 return tickets.ToList();
+            }
+
+            static public void RemoveTicket(purchased_ticket pt)
+            {
+                var ticket = (from t in db.purchased_tickets
+                              where t.purchaseid == pt.purchaseid
+                              select t).Single();
+
+                if (ticket.attended_events.Count != 0)
+                {
+                    ticket.used = 1;
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    db.purchased_tickets.DeleteOnSubmit(ticket);
+                    db.SubmitChanges();
+                }
             }
         }
 

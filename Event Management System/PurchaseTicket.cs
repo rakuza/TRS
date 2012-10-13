@@ -81,8 +81,8 @@ namespace Event_Management_System
         {
             if (lbxUsers.SelectedItem != null && lbxTickets.SelectedItem != null)
             {
-                SQL.PurchaseTickets.BuyTicket((user)lbxUsers.SelectedItem, (ticket)lbxTickets.SelectedItem);
-                lbxOwnedTickets.Items.Add((ticket)lbxTickets.SelectedItem);
+                purchased_ticket pt = SQL.PurchaseTickets.BuyTicket((user)lbxUsers.SelectedItem, (ticket)lbxTickets.SelectedItem);
+                lbxOwnedTickets.Items.Add((purchased_ticket)pt);
             }
         }
 
@@ -122,9 +122,15 @@ namespace Event_Management_System
         private void Remove(object sender, EventArgs e)
         {
             purchased_ticket ticketToRemove = lbxOwnedTickets.SelectedItem as purchased_ticket;
-            //more stuff
+            SQL.PurchaseTickets.RemoveTicket(ticketToRemove);
+            lbxOwnedTickets.Items.Clear();
+            lbxOwnedTickets.DisplayMember = "ticket";
+            lbxOwnedTickets.Items.AddRange(SQL.PurchaseTickets.GetUsersUnusedTickets((user)lbxUsers.SelectedItem));
+            lblexpires.Visible = false;
+            lblOwnedTicketPrice.Visible = false;
+            lblOwnedTicketTicketName.Visible = false;
+            lblOwnedTicketType.Visible = false;
         }
-
 
 
 
