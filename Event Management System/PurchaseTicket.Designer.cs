@@ -35,11 +35,7 @@
             this.gbxUserInfo = new System.Windows.Forms.GroupBox();
             this.lblexpires = new System.Windows.Forms.Label();
             this.staticlblExpires = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.button1 = new System.Windows.Forms.Button();
-=======
             this.btnRemoveTicket = new System.Windows.Forms.Button();
->>>>>>> origin/master
             this.staticType2 = new System.Windows.Forms.Label();
             this.staticUnusedTickets = new System.Windows.Forms.Label();
             this.staticPrice2 = new System.Windows.Forms.Label();
@@ -73,10 +69,7 @@
             this.lbxUsers.Name = "lbxUsers";
             this.lbxUsers.Size = new System.Drawing.Size(120, 238);
             this.lbxUsers.TabIndex = 0;
-<<<<<<< HEAD
-=======
             this.lbxUsers.SelectedIndexChanged += new System.EventHandler(this.lbxUsers_SelectedValueChanged);
->>>>>>> origin/master
             this.lbxUsers.SelectedValueChanged += new System.EventHandler(this.lbxUsers_SelectedValueChanged);
             // 
             // tbxSearch
@@ -151,18 +144,6 @@
             this.staticlblExpires.Size = new System.Drawing.Size(41, 13);
             this.staticlblExpires.TabIndex = 26;
             this.staticlblExpires.Text = "Expires";
-            // 
-<<<<<<< HEAD
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(147, 309);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Remove);
-=======
             // btnRemoveTicket
             // 
             this.btnRemoveTicket.Location = new System.Drawing.Point(147, 309);
@@ -172,7 +153,6 @@
             this.btnRemoveTicket.Text = "Remove";
             this.btnRemoveTicket.UseVisualStyleBackColor = true;
             this.btnRemoveTicket.Click += new System.EventHandler(this.btnRemoveTicket_Click);
->>>>>>> origin/master
             // 
             // staticType2
             // 

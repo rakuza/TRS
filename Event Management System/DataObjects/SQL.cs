@@ -472,7 +472,6 @@ namespace Event_Management_System.DataObjects
                 return tickets.ToList();
             }
 
-<<<<<<< HEAD
             static public void RemoveTicket(purchased_ticket pt)
             {
                 var ticket = (from t in db.purchased_tickets
@@ -489,7 +488,9 @@ namespace Event_Management_System.DataObjects
                     db.purchased_tickets.DeleteOnSubmit(ticket);
                     db.SubmitChanges();
                 }
-=======
+
+            }
+
             static public void DeleteSelectedTicket(purchased_ticket t)
             {
                 var ticketContext = (from pt in db.purchased_tickets
@@ -498,7 +499,7 @@ namespace Event_Management_System.DataObjects
                 ticketContext.used = 1;
 
                 db.SubmitChanges();
->>>>>>> origin/master
+
             }
         }
 
